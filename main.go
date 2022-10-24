@@ -37,6 +37,7 @@ func (c *Course) IsEmpty() bool {
 }
 
 func main() {
+
 	fmt.Println("Runing the dependancy file 1 2 3 4 5 ")
 	r := mux.NewRouter()
 	r.HandleFunc("/", serveHome).Methods("GET")                 // router r r.HandleFunc("rought", controller).Methods("methods name ")
@@ -48,6 +49,13 @@ func main() {
 
 	courses = append(courses, Course{CourseId: "2", CourseName: "ReactJS", CoursePrice: 299, Author: &Author{Fullname: "Hitesh Choudhary", Website: "lco.dev"}, Boss: &Boss{Fullname: "Hitesh", Lastname: "Choudhary"}})
 	courses = append(courses, Course{CourseId: "4", CourseName: "MERN Stack", CoursePrice: 199, Author: &Author{Fullname: "Joy Adhikary", Website: "go.dev"}, Boss: &Boss{Fullname: "JOY", Lastname: "Adhikary"}})
+	courses = append(courses, Course{CourseId: "1", CourseName: "Golang", CoursePrice: 399, Author: &Author{Fullname: "Hitesh Choudhary", Website: "lco.dev"}, Boss: &Boss{Fullname: "Hitesh1", Lastname: "Choudhary"}})
+	courses = append(courses, Course{CourseId: "3", CourseName: "Go", CoursePrice: 199, Author: &Author{Fullname: "Joy Adhikary", Website: "go.dev"}, Boss: &Boss{Fullname: "JOY1", Lastname: "Adhikary"}})
+	courses = append(courses, Course{CourseId: "5", CourseName: "ReactJS", CoursePrice: 299, Author: &Author{Fullname: "Hitesh Choudhary", Website: "lco.dev"}, Boss: &Boss{Fullname: "Hitesh", Lastname: "Choudhary"}})
+	courses = append(courses, Course{CourseId: "6", CourseName: "MERN", CoursePrice: 199, Author: &Author{Fullname: "Joy Adhikary", Website: "go.dev"}, Boss: &Boss{Fullname: "JOY", Lastname: "Adhikary"}})
+	courses = append(courses, Course{CourseId: "7", CourseName: "Golang", CoursePrice: 399, Author: &Author{Fullname: "Hitesh Choudhary", Website: "lco.dev"}, Boss: &Boss{Fullname: "Hitesh1", Lastname: "Choudhary"}})
+	courses = append(courses, Course{CourseId: "8", CourseName: "Go", CoursePrice: 199, Author: &Author{Fullname: "Joy Adhikary", Website: "go.dev"}, Boss: &Boss{Fullname: "JOY1", Lastname: "Adhikary"}})
+
 	log.Fatal(http.ListenAndServe(":4000", r))
 }
 
@@ -73,7 +81,7 @@ func getonecourse(w http.ResponseWriter, r *http.Request) {
 	}
 
 	json.NewEncoder(w).Encode("not found")
-	return
+
 }
 
 func createonecourse(w http.ResponseWriter, r *http.Request) {
